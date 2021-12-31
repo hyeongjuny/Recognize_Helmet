@@ -11,5 +11,36 @@
 
 
 
+## Model Set
 
+```
+def build_model():
+    model = models.Sequential()
+    conv_base = VGG16(weights='imagenet', include_top = False, input_shape = input_shape)
+    conv_base.trainable=False
 
+    model.add(conv_base)
+
+    model.add(layers.GlobalAveragePooling2D())
+    model.add(layers.Dense(256))
+    model.add(BatchNormalization())
+    model.add(Activation('relu'))
+    model.add(layers.Dense(32, activation='relu'))
+    model.add(layers.Dense(1, activation='sigmoid'))
+    # compile
+    model.compile(optimizer='RMSprop',
+                  loss='binary_crossentropy', metrics=['accuracy'])
+    return model
+
+# main loop without cross-validation
+import time
+starttime=time.time();
+num_epochs = 150
+model = build_model()
+history = model.fit_generator(train_generator,
+                    epochs=num_epochs, steps_per_epoch=100,
+                    validation_data=validation_generator, validation_steps=50)
+
+```
+
+> Model Layer설정 및 훈련
