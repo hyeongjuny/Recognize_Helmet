@@ -54,5 +54,7 @@ history = model.fit_generator(train_generator,
 
 ```
 
-> Model Layer 설정 및 훈련
-> VGG16이 더 
+> Model Layer 설정 및 훈련.
+> VGG16이 Overfitting이 Inception V3보다 더 늦게 일어나므로 VGG16을 사용!
+
+
