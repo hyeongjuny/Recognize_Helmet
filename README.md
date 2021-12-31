@@ -22,6 +22,8 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 
 ## 2. Model Set
 
+<img width="1049" alt="image" src="https://user-images.githubusercontent.com/96864406/147826237-295b3aad-0501-4da8-a74f-b27ccb1912bc.png">
+
 ```
 def build_model():
     model = models.Sequential()
@@ -53,3 +55,4 @@ history = model.fit_generator(train_generator,
 ```
 
 > Model Layer 설정 및 훈련
+> VGG16이 더 
