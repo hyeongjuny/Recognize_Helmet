@@ -22,7 +22,7 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 
 ## 2. Model Set
 
-<img width="1049" alt="image" src="https://user-images.githubusercontent.com/96864406/147826237-295b3aad-0501-4da8-a74f-b27ccb1912bc.png">
+> <img width="1049" alt="image" src="https://user-images.githubusercontent.com/96864406/147826237-295b3aad-0501-4da8-a74f-b27ccb1912bc.png">
 
 ```
 def build_model():
@@ -56,5 +56,41 @@ history = model.fit_generator(train_generator,
 
 > Model Layer 설정 및 훈련.
 > VGG16이 Overfitting이 Inception V3보다 더 늦게 일어나므로 VGG16을 사용!
+
+
+## 3. Visualization
+
+```
+# visualization
+def plot_acc(h, title="accuracy"):
+    plt.plot(h.history['acc'])
+    plt.plot(h.history['val_acc'])
+    plt.title(title)
+    plt.ylabel('Accuracy')
+    plt.xlabel('Epoch')
+    plt.legend(['Training', 'Validation'], loc=0)
+
+def plot_loss(h, title="loss"):
+    plt.plot(h.history['loss'])
+    plt.plot(h.history['val_loss'])
+    plt.title(title)
+    plt.ylabel('Loss')
+    plt.xlabel('Epoch')
+    plt.legend(['Training', 'Validation'], loc=0)
+
+plot_loss(history)
+plt.savefig('loss_FT_re.png')
+plt.clf()
+plot_acc(history)
+plt.savefig('accuracy_FT_re.png')
+```
+
+> ![image](https://user-images.githubusercontent.com/96864406/147826624-39c8fa2b-5906-453f-9136-daaea5f315ec.png)
+
+> Finetuning을 통해 최종 Model 결과 Plot 및 Save
+
+
+
+
 
 
