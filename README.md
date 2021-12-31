@@ -1,6 +1,6 @@
 # 전동 킥보드 헬멧 작용여부 판단 모델
 
-## Data Collect
+## 1. Data Collect
 
 > <img width="659" alt="image" src="https://user-images.githubusercontent.com/96864406/147825672-6e7d9171-f29f-4024-9b96-a195b399336c.png">
 
@@ -11,7 +11,7 @@
 
 
 
-## Model Set
+## 2. Model Set
 
 ```
 def build_model():
@@ -43,4 +43,4 @@ history = model.fit_generator(train_generator,
 
 ```
 
-> Model Layer설정 및 훈련
+> Model Layer 설정 및 훈련
